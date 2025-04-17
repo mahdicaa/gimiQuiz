@@ -1,11 +1,13 @@
 export function removerRepetitive(string) {
   let result = "";
-  for (item of string) {
+  for (let item of string) {
     if (!result.includes(item)) result += item;
   }
 
   return result;
 }
+
+// console.log(removerRepetitive("aabbaa"))
 
 // console.log(removerRepetitive("abcd#abcd#abcd@@%%$"));
 
