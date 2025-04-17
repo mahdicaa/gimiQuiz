@@ -1,4 +1,3 @@
-
 `
 Important note!!!
 
@@ -7,9 +6,9 @@ This is the total verses as a data bank for the following function!
 Due to some unintentional issues during fetching process, I faild to make 
 
 the mentioned verses a separate file. So, the verses are declered here and I am sorry!
-`
+`;
 
-poem =`به لاله نرگس مخمور گفت وقت سحر
+poem = `به لاله نرگس مخمور گفت وقت سحر
 
 که هر که در صفِ باغ است صاحب هنریست
 
@@ -132,51 +131,45 @@ poem =`به لاله نرگس مخمور گفت وقت سحر
 همچو مور اندر ره همت همی پا کوفتن
 
 چون مگس همواره دست شوق بر سر داشتن
-`
-
-
+`;
 
 export function poetry(verse) {
-splited = poem.split("\n");
+  splited = poem.split("\n");
 
-
-for (let key in splited) {
-  if (splited[key] === "") {
-    delete splited[key];
-  }
-}
-
-let data = new Object();
-
-for (let i = 0; i < splited.length; i = i + 4) {
-  data[i] = splited[i] + splited[Number(i) + 2];
-}
-
-poemData1 = [];
-
-for (item in data) {
-  let key1 = data[item].charAt(0);
-  poemData1.push({ [key1]: data[item] });
-}
-
-let splitedVerse = verse.trim().split(" ");
-
-let lastWordOfVerse = splitedVerse.at(-1);
-
-for (item of poemData1) {
-  if (lastWordOfVerse.at(-1) === Object.keys(item)[0]) {
-
-    return(Object.values(item)[0]);
-    // console.log(Object.values(item)[0])
-    break;
+  for (let key in splited) {
+    if (splited[key] === "") {
+      delete splited[key];
+    }
   }
 
-}
+  let data = new Object();
 
+  for (let i = 0; i < splited.length; i = i + 4) {
+    data[i] = splited[i] + splited[Number(i) + 2];
+  }
+
+  poemData1 = [];
+
+  for (item in data) {
+    let key1 = data[item].charAt(0);
+    poemData1.push({ [key1]: data[item] });
+  }
+
+  let splitedVerse = verse.trim().split(" ");
+
+  let lastWordOfVerse = splitedVerse.at(-1);
+
+  for (item of poemData1) {
+    if (lastWordOfVerse.at(-1) === Object.keys(item)[0]) {
+      return Object.values(item)[0];
+      // console.log(Object.values(item)[0])
+      break;
+    }
+  }
 }
 
 verse = `       بنفشه مژدهٔ نوروز میدهد ما را
 
 شکوفه را ز خزان و ز مهرگان خبریست     `;
 
-console.log(poetry(verse))
+console.log(poetry(verse));
